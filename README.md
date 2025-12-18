@@ -8,14 +8,21 @@
 This project demonstrates a **complete DevOps implementation** for an online food
 ordering and delivery platform inspired by real-world systems such as **Zomato**.
 
-The **application source code** was referenced from an open-source project for learning
-purposes.  
+The **application source code** was referenced from an open-source project for learning purposes.  
 The **entire DevOps lifecycle** — including CI/CD automation, containerization,
 cloud infrastructure, Kubernetes orchestration, and monitoring — was **designed,
 implemented, and executed independently by me**.
 
-The goal of this project is to showcase **production-ready DevOps practices** for building
-a **scalable, automated, and highly available cloud-native system**.
+The goal of this project is to showcase **DevOps practices close to real production setups**, 
+with a **scalable, automated, and highly available cloud-native system**.
+
+---
+
+## 💡 Why I Built This Project
+
+I built this project to gain **hands-on experience with real-world DevOps workflows**, 
+understand CI/CD pipelines, Kubernetes deployments, cloud infrastructure provisioning, 
+and monitoring practices, while creating a project I could reliably deploy end-to-end.
 
 ---
 
@@ -26,6 +33,14 @@ a **scalable, automated, and highly available cloud-native system**.
 - Support horizontal scalability during peak traffic
 - Provide real-time monitoring and observability
 - Ensure system stability with rollback capabilities
+
+---
+
+## ⚠ Challenges Faced
+
+- Encountered IAM permission issues while connecting Jenkins with EKS
+- Debugged Docker image pull errors from ECR due to incorrect IAM role mapping
+- Resolved Kubernetes pod crash loops caused by incorrect environment variables
 
 ---
 
@@ -72,16 +87,16 @@ a **scalable, automated, and highly available cloud-native system**.
 
 ## 🚀 CI/CD Pipeline Workflow
 
-1. Developer pushes code to GitHub repository
-2. GitHub Webhook triggers Jenkins pipeline automatically
-3. Jenkins pulls the latest code
-4. Docker images are built for application services
-5. Images are pushed to AWS ECR
-6. Kubernetes manifests are applied to AWS EKS cluster
-7. Application is deployed to staging environment
-8. Prometheus collects application and system metrics
-9. Grafana visualizes metrics via dashboards
-10. Successful builds are promoted to production
+1. Developer pushes code to GitHub repository  
+2. GitHub Webhook triggers Jenkins pipeline automatically  
+3. Jenkins pulls the latest code  
+4. Docker images are built for application services  
+5. Images are pushed to AWS ECR  
+6. Kubernetes manifests are applied to AWS EKS cluster  
+7. Application is deployed to staging environment  
+8. Prometheus collects application and system metrics  
+9. Grafana visualizes metrics via dashboards  
+10. Successful builds are promoted to production  
 11. Kubernetes auto-scaling ensures high availability
 
 ---
@@ -97,7 +112,7 @@ a **scalable, automated, and highly available cloud-native system**.
 ### Grafana Monitoring Dashboard
 ![Grafana Dashboard](screenshots/grafana-dashboard.png)
 
-> Replace placeholders with actual screenshots from your setup.
+> Replace these placeholders with actual screenshots from your setup.
 
 ---
 
@@ -147,11 +162,9 @@ kubectl get pods -n <namespace>
 kubectl get services -n <namespace>
 kubectl get ingress -n <namespace>
 Access the application
-
 Use the ingress DNS name to access the deployed app.
 
 Monitor the system
-
 Open Grafana and Prometheus dashboards to view metrics and alerts.
 
 📂 Repository Structure
@@ -182,4 +195,4 @@ FoodAppZomato-DevOps/
 📜 Credits & Disclaimer
 Application code was forked from an open-source project for learning purposes.
 
-DevOps implementation, CI/CD, Docker, Kubernetes, Terraform, and monitoring were entirely developed and executed by me.
+All DevOps implementation, CI/CD pipelines, Docker, Kubernetes, Terraform infrastructure, and monitoring setups were developed and executed independently by me.
