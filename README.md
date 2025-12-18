@@ -1,4 +1,4 @@
-# Cloud-Native Food Delivery Platform  
+# Cloud-Native Food Delivery Platform
 ## DevOps Implementation using AWS, Docker, Kubernetes & CI/CD
 
 ---
@@ -14,8 +14,8 @@ The **entire DevOps lifecycle** — including CI/CD automation, containerization
 cloud infrastructure, Kubernetes orchestration, and monitoring — was **designed,
 implemented, and executed independently by me**.
 
-The goal of this project is to showcase **production-ready DevOps practices** for
-building a **scalable, automated, and highly available cloud-native system**.
+The goal of this project is to showcase **production-ready DevOps practices** for building
+a **scalable, automated, and highly available cloud-native system**.
 
 ---
 
@@ -62,7 +62,11 @@ building a **scalable, automated, and highly available cloud-native system**.
 - Prometheus – Metrics collection
 - Grafana – Visualization & monitoring
 
-📌 Refer to `diagrams/architecture.png` for the complete architecture diagram.
+**Architecture Diagram:**
+
+![Architecture Diagram](diagrams/architecture.png)
+
+> Suggested diagram: Show Jenkins → Docker → EKS → Users + Prometheus/Grafana + Terraform infrastructure. Tools like Draw.io, Lucidchart, or Figma can be used.
 
 ---
 
@@ -82,30 +86,100 @@ building a **scalable, automated, and highly available cloud-native system**.
 
 ---
 
-## 📂 Repository Structure
+## 📸 CI/CD Pipeline & Monitoring
 
-```text
+### Jenkins Pipeline
+![Jenkins Pipeline](screenshots/jenkins-pipeline.png)
+
+### Kubernetes Deployment
+![EKS Pods](screenshots/eks-pods.png)
+
+### Grafana Monitoring Dashboard
+![Grafana Dashboard](screenshots/grafana-dashboard.png)
+
+> Replace placeholders with actual screenshots from your setup.
+
+---
+
+## 🛠 How to Run This Project
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/AkashPedraj/FoodAppZomato-DevOps.git
+cd FoodAppZomato-DevOps
+Provision infrastructure using Terraform
+
+bash
+Copy code
+cd terraform
+terraform init
+terraform apply
+This will create VPC, subnets, security groups, and the EKS cluster.
+
+Configure AWS CLI
+
+bash
+Copy code
+aws configure
+Enter your AWS Access Key, Secret Key, region, and output format.
+
+Build and push Docker images
+
+bash
+Copy code
+cd ../docker
+docker build -t foodapp-frontend .
+docker tag foodapp-frontend:latest <AWS_ECR_URI>/foodapp-frontend:latest
+docker push <AWS_ECR_URI>/foodapp-frontend:latest
+Deploy application on Kubernetes
+
+bash
+Copy code
+cd ../k8s
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl apply -f ingress.yaml
+Verify deployments
+
+bash
+Copy code
+kubectl get pods -n <namespace>
+kubectl get services -n <namespace>
+kubectl get ingress -n <namespace>
+Access the application
+
+Use the ingress DNS name to access the deployed app.
+
+Monitor the system
+
+Open Grafana and Prometheus dashboards to view metrics and alerts.
+
+📂 Repository Structure
+text
+Copy code
 FoodAppZomato-DevOps/
-│
 ├── Jenkinsfile
 ├── docker/
 │   └── Dockerfile
-│
 ├── k8s/
 │   ├── deployment.yaml
 │   ├── service.yaml
 │   └── ingress.yaml
-│
 ├── terraform/
 │   ├── main.tf
 │   ├── vpc.tf
 │   └── eks.tf
-│
 ├── monitoring/
 │   ├── prometheus.yaml
 │   └── grafana-dashboard.json
-│
 ├── diagrams/
 │   └── architecture.png
-│
+├── screenshots/
+│   ├── jenkins-pipeline.png
+│   ├── eks-pods.png
+│   └── grafana-dashboard.png
 └── README.md
+📜 Credits & Disclaimer
+Application code was forked from an open-source project for learning purposes.
+
+DevOps implementation, CI/CD, Docker, Kubernetes, Terraform, and monitoring were entirely developed and executed by me.
