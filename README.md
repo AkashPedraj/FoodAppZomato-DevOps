@@ -99,22 +99,7 @@ and monitoring practices, while creating a project I could reliably deploy end-t
 10. Successful builds are promoted to production  
 11. Kubernetes auto-scaling ensures high availability
 
----
 
-## 📸 CI/CD Pipeline & Monitoring
-
-### Jenkins Pipeline
-![Jenkins Pipeline](screenshots/jenkins-pipeline.png)
-
-### Kubernetes Deployment
-![EKS Pods](screenshots/eks-pods.png)
-
-### Grafana Monitoring Dashboard
-![Grafana Dashboard](screenshots/grafana-dashboard.png)
-
-> Replace these placeholders with actual screenshots from your setup.
-
----
 
 ## 🛠 How to Run This Project
 
